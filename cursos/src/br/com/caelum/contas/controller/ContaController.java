@@ -3,6 +3,7 @@ package br.com.caelum.contas.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,6 +36,16 @@ public class ContaController {
 		mv.addObject("contas", contas);
 
 		return mv;
+	}
+	
+	@RequestMapping("/listaContas2")
+	public String lista(Model mv){
+		ContaDAO dao = new ContaDAO();
+		List<Conta> contas = dao.lista();
+		
+		mv.addAttribute("contas", contas);
+
+		return "conta/lista";
 	}
 	
 }
