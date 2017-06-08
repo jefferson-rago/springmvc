@@ -14,6 +14,10 @@
 	
 	<!-- Habilitando a utilização de anotações -->
 	<mvc:annotation-driven />
+	
+	<!-- Habilitar manipulador de arquivos estaticos -->
+	<!-- Geralmente esses arquivos no diretório resources -->
+	<mvc:default-servlet-handler/>
 
 	<!-- Mapeamento do spring -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

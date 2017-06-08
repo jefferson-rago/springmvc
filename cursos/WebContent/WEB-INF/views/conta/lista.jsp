@@ -3,6 +3,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+<script src="resources/js/jquery.js"></script>
+
+<script type="text/javascript">
+	
+	function pagaAgora(id){
+		$.post("pagaConta",{'id':id}, function(){
+			alert("Conta paga com sucesso!");
+		});
+	}
+
+</script>
+</head>
 <body>
     <table style="height: 10px; width: 775px;" border="1">
         <tr>
@@ -32,7 +45,12 @@
             <td><fmt:formatDate value="${conta.dataPagamento.time}" pattern="dd/MM/yyyy"/></td>
             <td>
             	<a href="removeConta?id=${conta.id}">Remover</a> | 
-            	<a href="mostraConta?id=${conta.id}">Alterar</a>
+            	<a href="mostraConta?id=${conta.id}">Alterar</a> |
+            	<span id="conta_${conta.id}">
+	            	<c:if test="${conta.paga eq false}"> 
+	                	<a href="#" onclick="pagaAgora(${conta.id});">Pagar</a>
+	                </c:if>
+            	</span>
            	</td>
         </tr>        
         </c:forEach>
