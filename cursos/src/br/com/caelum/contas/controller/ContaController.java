@@ -48,4 +48,34 @@ public class ContaController {
 		return "conta/lista";
 	}
 	
+	@RequestMapping("/removeConta")
+	public String remove(Conta conta){
+		ContaDAO dao = new ContaDAO();
+		dao.remove(conta);
+		
+		// Desta forma o rederecionamento ocorrerá somente do lado do servidor e 
+		// a url permanecerá na HOST/removeConta?id=ID_CONTA
+		// return "forward:listaContas"; 
+		
+		// Desta forma o redirecionamento ocorrerá do lado do cliente e 
+		// a troca será praticamente imperceptível
+		return "redirect:listaContas";
+	}
+	
+	@RequestMapping("/mostraConta")
+	public String mostrar(Long id, Model model){
+		ContaDAO dao = new ContaDAO();
+		model.addAttribute("conta",dao.buscaPorId(id));
+		
+		return "conta/mostra";
+	}
+	
+	@RequestMapping("/alteraConta")
+	public String altera(Conta conta){
+		ContaDAO dao = new ContaDAO();
+		dao.altera(conta);
+		
+		return "redirect:listaContas";
+	}
+	
 }
