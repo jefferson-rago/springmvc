@@ -7,12 +7,17 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import br.com.caelum.contas.ConnectionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import br.com.caelum.contas.modelo.Usuario;
 
+@Repository
 public class UsuarioDAO {
 	private Connection connection;
 
+	
+	@Autowired
 	public UsuarioDAO(DataSource ds) {
 		try {
 			connection = ds.getConnection();
