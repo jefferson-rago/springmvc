@@ -7,7 +7,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 
-	/*public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object controller)
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object controller)
 	throws Exception {
 		
 		String uri = request.getRequestURI();
@@ -22,5 +23,5 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 			return false;
 		}
 		
-	}*/
+	}
 }

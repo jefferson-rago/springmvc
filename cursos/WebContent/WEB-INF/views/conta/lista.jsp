@@ -10,7 +10,7 @@
 	
 	function pagaAgora(id){
 		$.post("pagaConta",{'id':id}, function(){
-			alert("Conta paga com sucesso!");
+			$("#conta_"+id).html("Paga");
 		});
 	}
 
@@ -46,11 +46,9 @@
             <td>
             	<a href="removeConta?id=${conta.id}">Remover</a> | 
             	<a href="mostraConta?id=${conta.id}">Alterar</a> |
-            	<span id="conta_${conta.id}">
-	            	<c:if test="${conta.paga eq false}"> 
-	                	<a href="#" onclick="pagaAgora(${conta.id});">Pagar</a>
-	                </c:if>
-            	</span>
+            	<c:if test="${conta.paga eq false}"> 
+                	<a href="#" onclick="pagaAgora(${conta.id});">Pagar</a>
+                </c:if>
            	</td>
         </tr>        
         </c:forEach>
