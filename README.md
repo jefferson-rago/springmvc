@@ -1,4 +1,4 @@
-# Spring MVC
+# Spring MVC: É hora de criar uma webapp com Spring MVC4
 Código fontes realizado no curso Spring MVC do alura
 
 ## Aulas 
